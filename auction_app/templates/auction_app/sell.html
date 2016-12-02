@@ -1,0 +1,36 @@
+<html>
+<body>
+
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+</style>
+<a href="{% url 'front' %}">back</a><br/>
+<table>
+  <tr>
+    <th>name</th>
+    <th>median price</th>
+    <th>sell for</th>
+    <th>buy for</th>
+    <th>current price</th>
+  </tr>
+{% for item in items %}
+  <tr>
+    <td>{{ item.name }}</td>
+    <td>{{ item.price|floatformat:-2 }}</td>
+    <td>{{ item.sell_for|floatformat:-2 }}</td>
+    <td>{{ item.buy_for|floatformat:-2 }}</td>
+    <td>{{ item.current_price|floatformat:-2 }}</td>
+  </tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
